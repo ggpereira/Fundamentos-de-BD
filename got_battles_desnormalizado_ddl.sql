@@ -1,5 +1,7 @@
 drop database if exists gotbattles;
 
+//Tabela desnormalizada
+
 create database gotbattles;
 
 
