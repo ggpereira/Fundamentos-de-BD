@@ -2,6 +2,8 @@ drop database if exists gotbattles;
 
 create database gotbattles;
 
+
+/*Game of thrones battles*/
 use gotbattles;
 
 create table battles(
