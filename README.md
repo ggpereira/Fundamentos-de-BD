@@ -8,7 +8,18 @@
 
 <h2>Normalização</h2>
 <h3>Esquema - 1FN</h3>
-<p> Fazer </p>
+<p>  
+battle(name, year, <strong>battle_number</strong>,  attacker_1, attacker_2, attacker_3, attacker_4, defender_1, defender_2, defender_3 defender_4, attacker_outcome, battle_type, major_death,  major_capture, attacker_size, defender_size, note)
+
+attacker_king(<strong>battle_number, id_king</strong> , king_name)
+	battle_number referencia battle
+defender_king(<strong>battle_number,  id_king</strong> ,king_name)
+	battle_number referencia battle
+attacker_commander(<strong>battle_number, id_commander</strong>, commander_name)
+	battle_number referencia battle
+defender_commander(<strong>battle_number, id_commander</strong>, commander_name)
+
+</p>
 
 <h4>Dependências funcionais</h4>
 <p>Fazer</p>
