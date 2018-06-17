@@ -1,7 +1,11 @@
 drop database if exists gotbattles;
 
+//Tabela desnormalizada
+
 create database gotbattles;
 
+
+/*Game of thrones battles*/
 use gotbattles;
 
 create table battles(
