@@ -8,12 +8,12 @@
 
 <h2>Normalização</h2>
 <h3>Esquema - 1FN</h3>
-<p> Já está na primeira forma normal</p>
+<p> Fazer </p>
 
 <h4>Dependências funcionais</h4>
-
+<p>Fazer</p>
 <h3>Esquema - 2FN</h3>
-<p> Já está na segunda forma normal</p>
+<p> Fazer </p>
 
 <h3>Esquema - 3FN </h3>
 <p>?Fazer</p>
