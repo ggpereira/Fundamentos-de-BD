@@ -23,9 +23,12 @@ defender_commander(<strong>battle_number, id_commander</strong>, commander_name)
 </p>
 
 <h4>Dependências funcionais</h4>
-<p>Fazer</p>
+<p>Pronto</p>
 <h3>Esquema - 2FN</h3>
-<p> Fazer </p>
+<p>Pronto</p>
 
 <h3>Esquema - 3FN </h3>
-<p>?Fazer</p>
+<p>Pronto</p>
+
+<h3> Esquema - 4FN? </h3>
+<p>Fazer</p>
