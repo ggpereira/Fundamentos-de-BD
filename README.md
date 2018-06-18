@@ -9,7 +9,7 @@
 <h2>Normalização</h2>
 <h3>Esquema - 1FN</h3>
 <p>  
-battle(name, year, <u><strong>battle_number</strong></u>,  attacker_1, attacker_2, attacker_3, attacker_4, defender_1, defender_2, defender_3 defender_4, attacker_outcome, battle_type, major_death,  major_capture, attacker_size, defender_size, note)
+battle(name, year, <strong>battle_number</strong>,  attacker_1, attacker_2, attacker_3, attacker_4, defender_1, defender_2, defender_3 defender_4, attacker_outcome, battle_type, major_death,  major_capture, attacker_size, defender_size, note)
 
 attacker_king(__**battle_number, id_king**__</strong> , king_name)<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;battle_number referencia battle<br/>
