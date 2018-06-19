@@ -1,13 +1,13 @@
 drop database if exists gotbattles;
 
-create database gotbattles;
+create database gotbattles DEFAULT CHARACTER SET = utf8;
 
 use gotbattles;
 
-create table battles(
+create table battles_desnormalizado(
     name  varchar(45) not null,
-    year int not null,
-    battle_number int not null, 
+    year integer not null,
+    battle_number integer not null, 
     attacker_king varchar(45), 
     defender_king varchar(45),
     attacker_1 varchar(45),
@@ -20,15 +20,15 @@ create table battles(
     defender_4 varchar(45),
     attacker_outcome varchar(5),
     battle_type varchar(30),
-    major_death int,
-    major_capture int, 
-    attacker_size int,
-    defender_size int, 
+    major_death integer,
+    major_capture integer, 
+    attacker_size integer,
+    defender_size integer, 
     attacker_commander varchar(45),
     defender_commander varchar(45),
-    summer int, 
+    summer integer, 
     location varchar(45),
     region varchar(45),
     note text,
     primary key(battle_number)
-)ENGINE=InnoDB DEFAULT CHARSET=latin1;
+)ENGINE = InnoDB DEFAULT CHARACTER SET = utf8;
