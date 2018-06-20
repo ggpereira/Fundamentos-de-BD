@@ -2,7 +2,10 @@ USE gotbattles;
 
 
 create table battle(
-	battle_number integer not null, 
+	name varchar(64), 
+    year integer not null,
+	battle_number integer not null,
+    attacker_outcome varchar(5),
 	battle_type varchar(64),
 	major_death integer, 
     major_capture integer, 
@@ -80,7 +83,7 @@ create table tab_location_battle(
 );
 
 create table house(
-	id_house integer not null, 
+	id_house integer not null auto_increment, 
     house_name varchar(64),
     PRIMARY KEY(id_house)
 );
@@ -99,4 +102,5 @@ create table defender(
 	foreign key(battle_number) references battle(battle_number),
     foreign key(id_house) references house(id_house),
 	PRIMARY KEY(battle_number, id_house)
-)
+);
+
