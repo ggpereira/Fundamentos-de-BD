@@ -52,3 +52,5 @@ SELECT * FROM attacker_commander;
 SELECT * FROM commander;
 
 SELECT * FROM tab_commander_aux_attack;
+
+SELECT * FROM location;

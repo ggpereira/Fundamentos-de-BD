@@ -8,6 +8,10 @@ insert into region(region)
 select distinct region 
 from battles_desnormalizado;
 
+insert into location(location)
+select distinct location
+from battles_desnormalizado;
+
 
 insert into numbers values (1), (2), (3), (4), (5), (6), (7);
 

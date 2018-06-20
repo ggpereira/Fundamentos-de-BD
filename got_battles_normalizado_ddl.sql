@@ -37,8 +37,6 @@ create table region(
 create table location(
 	id_location integer  not null auto_increment, 
     location varchar(64),
-    id_region integer,
-    FOREIGN KEY (id_region) references region(id_region),
     PRIMARY KEY(id_location)
 );
 
