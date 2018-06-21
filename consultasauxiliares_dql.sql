@@ -10,7 +10,10 @@ SELECT * FROM tab_king_aux_def;
 
 SELECT * FROM king;
 
-SELECT * FROM tab_commander_aux;
+SELECT * FROM tab_commander_aux_attack;
+
+SELECT * FROM tab_commander_aux_def;
+
 
 SELECT * FROM commander;
 
@@ -54,3 +57,8 @@ SELECT * FROM commander;
 SELECT * FROM tab_commander_aux_attack;
 
 SELECT * FROM location;
+
+select region from region;
+
+SELECT battle_number, c.id_commander FROM tab_commander_aux_attack as tab inner join commander as c on tab.commander_name = c.commander_name;
+

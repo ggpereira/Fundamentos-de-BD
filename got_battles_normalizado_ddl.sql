@@ -72,12 +72,14 @@ create table defender_commander(
     PRIMARY KEY(battle_number, id_commander)
 );
 
-create table tab_location_battle(
+create table location_battle(
 	battle_number integer not null,
-    id_location integer not null, 
+    id_location integer default null,
+    id_region integer not null, 
     foreign key(battle_number) references battle(battle_number),
     foreign key(id_location) references location(id_location),
-    PRIMARY KEY(battle_number, id_location)
+    foreign key(id_region) references region(id_region),
+    PRIMARY KEY(battle_number, id_region)
 );
 
 create table house(

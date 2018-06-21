@@ -8,13 +8,19 @@ insert into region(region)
 select distinct region 
 from battles_desnormalizado;
 
-insert into location(location)
-select distinct location
-from battles_desnormalizado;
-
 
 insert into numbers values (1), (2), (3), (4), (5), (6), (7);
 
+/*Tabela location */
+
+insert into location(location)
+select distinct substring_index(substring_index(battles_desnormalizado.location,', ', numbers.n), ', ', -1) location
+from numbers inner join battles_desnormalizado on char_length(battles_desnormalizado.location)
+	-char_length(replace(battles_desnormalizado.location, ', ', '')) >= numbers.n - 1
+where battles_desnormalizado.location != ""
+order by battle_number, n;
+
+/*-------------------------------------------------*/
 /*Table King*/
 /*Carrega os dados na tabela auxiliar pois há defender_king e attacker_king*/
 
@@ -95,9 +101,10 @@ SELECT battle_number, c.id_commander FROM tab_commander_aux_attack as tab inner 
 insert into defender_commander(battle_number, id_commander)
 SELECT battle_number, c.id_commander FROM tab_commander_aux_def as tab inner join commander as c on REPLACE(tab.commander_name, ' ', '') = c.commander_name;
 
-
-/*drop table tab_commander_aux_attack;
-drop table tab_commander_aux_def;*/
+/*Descarta as tabelas auxiliares*/
+drop table tab_commander_aux_attack;
+drop table tab_commander_aux_def;
+drop table numbers;
 /*------------------------------------------------------------*/
 
 /*Table house*/
@@ -161,3 +168,7 @@ SELECT battle_number, h.id_house FROM battles_desnormalizado as bd inner join ho
 
 
 /*----------------------------------------------*/
+/*Carga para a tabela de locais onde ocorreram batalhas*/
+
+
+/*Ao final temos os dados inseridos no banco normalizado*/
