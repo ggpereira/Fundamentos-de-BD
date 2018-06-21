@@ -39,7 +39,7 @@ from tab_aux_location as tab inner join location as l on tab.location = l.locati
 
 
 
-/*drop table tab_aux_location;*/
+drop table tab_aux_location;
 /*-------------------------------------------------*/
 /*Table King*/
 /*Carrega os dados na tabela auxiliar pois há defender_king e attacker_king*/
