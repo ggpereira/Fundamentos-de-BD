@@ -11,15 +11,35 @@ from battles_desnormalizado;
 
 insert into numbers values (1), (2), (3), (4), (5), (6), (7);
 
-/*Tabela location */
 
-insert into location(location)
-select distinct substring_index(substring_index(battles_desnormalizado.location,', ', numbers.n), ', ', -1) location
+/*Tabela auxiliar*/
+
+insert into tab_aux_location(battle_number, location)
+select battle_number, substring_index(substring_index(battles_desnormalizado.location,',', numbers.n), ',', -1) location
 from numbers inner join battles_desnormalizado on char_length(battles_desnormalizado.location)
-	-char_length(replace(battles_desnormalizado.location, ', ', '')) >= numbers.n - 1
+	-char_length(replace(battles_desnormalizado.location, ',', '')) >= numbers.n - 1
 where battles_desnormalizado.location != ""
 order by battle_number, n;
 
+/*carga das regiões onde ocorreram batalhas*/
+insert into region_battle(battle_number, id_region)
+SELECT bd.battle_number, r.id_region FROM region as r inner join battles_desnormalizado as bd on r.region = bd.region;
+
+/*Carga para location*/
+insert into location(location)
+select distinct location 
+from tab_aux_location;
+
+
+
+/*Carrega os locais onde ocorreram batalhas*/
+insert into location_battle(battle_number, id_location) 
+select battle_number, l.id_location
+from tab_aux_location as tab inner join location as l on tab.location = l.location; 
+
+
+
+/*drop table tab_aux_location;*/
 /*-------------------------------------------------*/
 /*Table King*/
 /*Carrega os dados na tabela auxiliar pois há defender_king e attacker_king*/

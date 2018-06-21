@@ -74,13 +74,20 @@ create table defender_commander(
 
 create table location_battle(
 	battle_number integer not null,
-    id_location integer default null,
-    id_region integer not null, 
+    id_location integer not null,
     foreign key(battle_number) references battle(battle_number),
     foreign key(id_location) references location(id_location),
+    PRIMARY KEY(battle_number, id_location)
+);
+
+create table region_battle(
+	battle_number integer not null,
+    id_region integer not null,
+    foreign key(battle_number) references battle(battle_number),
     foreign key(id_region) references region(id_region),
     PRIMARY KEY(battle_number, id_region)
 );
+
 
 create table house(
 	id_house integer not null auto_increment, 

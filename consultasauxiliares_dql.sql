@@ -62,3 +62,15 @@ select region from region;
 
 SELECT battle_number, c.id_commander FROM tab_commander_aux_attack as tab inner join commander as c on tab.commander_name = c.commander_name;
 
+SELECT bd.battle_number, r.region, l.location FROM region as r inner join battles_desnormalizado as bd on r.region = bd.region 
+	left join tab_aux_location as l on l.battle_number = bd.battle_number;
+
+/*SELECT bd.battle_number, tab.location, FROM (tab_aux_location as tab inner join battles_desnormalizado as bd on  tab.battle_number = bd.battle_number) 
+*/
+
+SELECT * FROM location_battle;
+
+SELECT * FROM tab_aux_location;
+
+select bd.battle_number, tab.id_location
+from tab_aux_location as tab inner join battles_desnormalizado as bd on tab.battle_number = bd.battle_number;

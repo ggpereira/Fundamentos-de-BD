@@ -31,3 +31,10 @@ create table tab_commander_aux_def(
     commander_name varchar(64),
     PRIMARY KEY(id_commander)
 );
+
+create table tab_aux_location(
+	id_location integer auto_increment, 
+	battle_number integer,
+    location varchar(64),
+    PRIMARY KEY(id_location)
+);
