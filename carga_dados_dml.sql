@@ -103,13 +103,11 @@ order by battle_number, n;
 
 /*Carrega os dados da tabela auxiliar para a tabela commander*/
 insert into commander(commander_name)
-select distinct substring_index(commander_name, " ", -2) as commander_name
-/*select distinct REPLACE(commander_name, ' ', '')*/ 
+select distinct REPLACE(commander_name, ' ', '') 
 from tab_commander_aux_attack
 where commander_name != " "
 UNION
-select distinct substring_index(commander_name, " ", -2) as commander_name
-/*select distinct REPLACE(commander_name, ' ', '')*/ 
+select distinct REPLACE(commander_name, ' ', '') 
 from tab_commander_aux_def
 where commander_name != " ";
 
@@ -192,7 +190,8 @@ SELECT battle_number, h.id_house FROM battles_desnormalizado as bd inner join ho
 
 
 /*----------------------------------------------*/
-/*Carga para a tabela de locais onde ocorreram batalhas*/
 
+/*Ao longo do código é feito drop das tabelas auxiliares, portanto ao final, só ficam as tabelas normalizadas e a desnormalizada de onde foram 
+extraídos os dados*/
 
 /*Ao final temos os dados inseridos no banco normalizado*/
