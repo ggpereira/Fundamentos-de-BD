@@ -24,10 +24,10 @@ create table battles_desnormalizado(
     major_capture integer, 
     attacker_size integer,
     defender_size integer, 
-    attacker_commander varchar(45),
-    defender_commander varchar(45),
+    attacker_commander varchar(256),
+    defender_commander varchar(256),
     summer integer, 
-    location varchar(45),
+    location varchar(128),
     region varchar(45),
     note text,
     primary key(battle_number)
