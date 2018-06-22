@@ -103,11 +103,13 @@ order by battle_number, n;
 
 /*Carrega os dados da tabela auxiliar para a tabela commander*/
 insert into commander(commander_name)
-select distinct REPLACE(commander_name, ' ', '') 
+select distinct substring_index(commander_name, " ", -2) as commander_name
+/*select distinct REPLACE(commander_name, ' ', '')*/ 
 from tab_commander_aux_attack
 where commander_name != " "
 UNION
-select distinct REPLACE(commander_name, ' ', '') 
+select distinct substring_index(commander_name, " ", -2) as commander_name
+/*select distinct REPLACE(commander_name, ' ', '')*/ 
 from tab_commander_aux_def
 where commander_name != " ";
 
@@ -121,10 +123,12 @@ SELECT battle_number, c.id_commander FROM tab_commander_aux_attack as tab inner 
 insert into defender_commander(battle_number, id_commander)
 SELECT battle_number, c.id_commander FROM tab_commander_aux_def as tab inner join commander as c on REPLACE(tab.commander_name, ' ', '') = c.commander_name;
 
+
 /*Descarta as tabelas auxiliares*/
 drop table tab_commander_aux_attack;
 drop table tab_commander_aux_def;
 drop table numbers;
+
 /*------------------------------------------------------------*/
 
 /*Table house*/
