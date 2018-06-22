@@ -1,6 +1,6 @@
 USE gotbattles;
 
-LOAD DATA LOCAL INFILE 'C:/Users/gabri/Documents/Fundamentos-de-BD/battles2.csv'
+LOAD DATA LOCAL INFILE 'C:/Users/Otavio/Desktop/Trabalho-Banco-de-Dados/Fundamentos-de-BD/Fundamentos-de-BD/battles2.csv'
 INTO TABLE battles_desnormalizado
 CHARACTER SET utf8
 FIELDS TERMINATED BY ','
