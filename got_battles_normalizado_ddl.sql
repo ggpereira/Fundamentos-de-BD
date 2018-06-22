@@ -1,7 +1,7 @@
 USE gotbattles;
 
 
-create table battle(
+CREATE TABLE battle(
 	name varchar(64), 
     year integer not null,
 	battle_number integer not null,
@@ -16,31 +16,31 @@ create table battle(
     PRIMARY KEY(battle_number)
 );	
 
-create table king(
+CREATE TABLE king(
 	id_king integer not null auto_increment,
     king_name varchar(64),
     PRIMARY KEY(id_king)
 );
 
-create table commander(
+CREATE TABLE commander(
 	id_commander integer not null auto_increment, 
     commander_name varchar(64),
 	PRIMARY KEY(id_commander)
 );
 
-create table region(
+CREATE TABLE region(
 	id_region integer not null auto_increment,
     region varchar(64),
     PRIMARY KEY(id_region)
 );
 
-create table location(
+CREATE TABLE location(
 	id_location integer  not null auto_increment, 
     location varchar(64),
     PRIMARY KEY(id_location)
 );
 
-create table attacker_king(
+CREATE TABLE attacker_king(
 	battle_number integer not null, 
     id_king integer not null,
 	foreign key(battle_number) references battle(battle_number), 
@@ -48,7 +48,7 @@ create table attacker_king(
     PRIMARY KEY(battle_number, id_king)
 );
 
-create table defender_king(
+CREATE TABLE defender_king(
 	battle_number integer not null, 
     id_king integer not null,
 	foreign key(battle_number) references battle(battle_number), 
@@ -56,7 +56,7 @@ create table defender_king(
     PRIMARY KEY(battle_number, id_king)
 );
 
-create table attacker_commander(
+CREATE TABLE attacker_commander(
 	battle_number integer not null, 
     id_commander integer not null,
 	foreign key(battle_number) references battle(battle_number), 
@@ -64,7 +64,7 @@ create table attacker_commander(
     PRIMARY KEY(battle_number, id_commander)
 );
 
-create table defender_commander(
+CREATE TABLE defender_commander(
 	battle_number integer not null, 
     id_commander integer not null,
 	foreign key(battle_number) references battle(battle_number), 
@@ -72,7 +72,7 @@ create table defender_commander(
     PRIMARY KEY(battle_number, id_commander)
 );
 
-create table location_battle(
+CREATE TABLE location_battle(
 	battle_number integer not null,
     id_location integer not null,
     foreign key(battle_number) references battle(battle_number),
@@ -80,7 +80,7 @@ create table location_battle(
     PRIMARY KEY(battle_number, id_location)
 );
 
-create table region_battle(
+CREATE TABLE region_battle(
 	battle_number integer not null,
     id_region integer not null,
     foreign key(battle_number) references battle(battle_number),
@@ -89,13 +89,13 @@ create table region_battle(
 );
 
 
-create table house(
+CREATE TABLE house(
 	id_house integer not null auto_increment, 
     house_name varchar(64),
     PRIMARY KEY(id_house)
 );
 
-create table attacker(
+CREATE TABLE attacker(
 	battle_number integer not null,
     id_house integer not null,
 	foreign key(battle_number) references battle(battle_number),
@@ -103,7 +103,7 @@ create table attacker(
 	PRIMARY KEY(battle_number, id_house)
 );
 
-create table defender(
+CREATE TABLE defender(
 	battle_number integer not null,
     id_house integer not null,
 	foreign key(battle_number) references battle(battle_number),

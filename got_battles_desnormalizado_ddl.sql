@@ -1,10 +1,10 @@
-drop database if exists gotbattles;
+DROP DATABASE IF EXISTS gotbattles;
 
-create database gotbattles DEFAULT CHARACTER SET = utf8;
+CREATE DATABASE gotbattles DEFAULT CHARACTER SET = utf8;
 
-use gotbattles;
+USE gotbattles;
 
-create table battles_desnormalizado(
+CREATE TABLE battles_desnormalizado(
     name  varchar(45) not null,
     year integer not null,
     battle_number integer not null, 
