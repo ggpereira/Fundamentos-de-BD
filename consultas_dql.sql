@@ -1,13 +1,12 @@
 USE gotbattles;
 
 /* Número de batalhas que aconteceram em riverrun */
-
 SELECT count(lb.battle_number) 
 FROM location as l natural join location_battle as lb
 WHERE l.location = "Riverrun";
 
-/*Retorna o nome das batalhas em que Robb Stark atuou como rei e/ou comandante*/
 
+/*Retorna o nome das batalhas em que Robb Stark atuou como rei e/ou comandante*/
 SELECT b.name
 FROM battle as b join (
 	SELECT list_k.battle_number /* Se extrai as batalhas com as especificações abaixo*/
@@ -30,10 +29,20 @@ FROM battle as b join (
 ) as robb_battles /* Retorna uma lista de batalhas (battle_numbers) em que Robb Stark fez parte */
 WHERE b.battle_number = robb_battles.battle_number
 ORDER BY robb_battles.battle_number;
-/*
-(SELECT *
-FROM house as h natural join attacker as atk
-WHERE )*/
 
-SELECT *
-FROM battles_desnormalizado
+
+/* Seleciona o tamanho do maior exercito (attacker size) em que a casa Lannister atacou */
+SELECT max(b.attacker_size)
+FROM battle as b join (
+	SELECT *
+	FROM house as h natural join attacker as atk
+	WHERE h.house_name = "Lannister") as ataques_lannister
+WHERE ataques_lannister.battle_number = b.battle_number;
+
+
+/* Seleciona todas as batalhas e suas respectivas comandantes defensores, incluindo aqueles que não possuem um */
+SELECT b.name, commander_list.commander_name
+FROM battle as b LEFT JOIN  (
+	SELECT *
+    FROM defender_commander natural join commander) as commander_list
+ON commander_list.battle_number = b.battle_number;
