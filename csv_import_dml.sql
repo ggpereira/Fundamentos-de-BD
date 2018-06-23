@@ -23,14 +23,23 @@ IGNORE 1 LINES
     defender_4, 
     attacker_outcome, 
     battle_type, 
-    major_death, 
-    major_capture,  
-    attacker_size, 
-    defender_size, 
+    @major_death, 
+    @major_capture,  
+    @attacker_size, 
+    @defender_size, 
     attacker_commander, 
     defender_commander, 
-    summer, 
+    @summer, 
     location,
     region,
     note
 )
+
+SET major_death = if(@major_death = "", null, @major_death)
+, major_capture = if(@major_capture = "", null, @major_capture)
+, attacker_size = if(@attacker_size = "", null, @attacker_size)
+, defender_size = if(@defender_size = "", null, @defender_size)
+, summer = if(@summer = "", null, @summer)
+
+
+

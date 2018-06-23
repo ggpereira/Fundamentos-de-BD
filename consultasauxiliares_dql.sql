@@ -87,6 +87,7 @@ SELECT * FROM tab_aux_location;
 select bd.battle_number, tab.id_location
 from tab_aux_location as tab  join battles_desnormalizado as bd on tab.battle_number = bd.battle_number;
 
+select * from battles_desnormalizado;
 
 /*UNION
 select distinct REPLACE(commander_name, ' ', '') 

@@ -5,7 +5,7 @@ CREATE DATABASE gotbattles DEFAULT CHARACTER SET = utf8;
 USE gotbattles;
 
 CREATE TABLE battles_desnormalizado(
-    name  varchar(45) not null,
+    name  varchar(256) not null,
     year integer not null,
     battle_number integer not null, 
     attacker_king varchar(45), 
